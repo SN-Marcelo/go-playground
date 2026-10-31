@@ -6,5 +6,7 @@ import (
 )
 
 func main() {
-	fmt.Println(math.Add(2, 3))
+	var x int = 5
+	var y int = 3
+	fmt.Println(math.Add(x, y))
 }
