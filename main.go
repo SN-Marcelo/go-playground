@@ -7,6 +7,13 @@ import (
 
 const Pi = 3.14
 
+type Celsius float64
+type Farenheit float64
+
+func (c Celsius) ToFarenheit() float64 {
+	return float64(c * 9 / 5 * 32)
+}
+
 func main() {
 	var x int = 5
 	var y int = 3
@@ -59,4 +66,7 @@ func main() {
 		defer fmt.Println(i)
 	}
 	fmt.Println("Loop finished")
+
+	temp := Celsius(25)
+	fmt.Println(temp.ToFarenheit())
 }
