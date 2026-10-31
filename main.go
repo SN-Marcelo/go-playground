@@ -33,12 +33,13 @@ func main() {
 		fmt.Println(num)
 	}
 
-	day := 3
+	day := 2
 	switch day {
 	case 1:
 		fmt.Println("Monday")
 	case 2:
 		fmt.Println("Tuesday")
+		fallthrough //Executes the next case
 	default:
 		fmt.Println("Other day")
 	}
