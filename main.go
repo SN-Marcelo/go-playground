@@ -32,4 +32,14 @@ func main() {
 	for _, num := range nums {
 		fmt.Println(num)
 	}
+
+	day := 3
+	switch day {
+	case 1:
+		fmt.Println("Monday")
+	case 2:
+		fmt.Println("Tuesday")
+	default:
+		fmt.Println("Other day")
+	}
 }
