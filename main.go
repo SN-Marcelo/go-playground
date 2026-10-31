@@ -14,4 +14,13 @@ func main() {
 	fmt.Println(math.Add(x, y))
 	fmt.Println(z)
 	fmt.Println(Pi)
+	fmt.Println(math.Divide(x, y))
+
+	if x > 5 {
+		fmt.Println("X es mayor a 5")
+	} else if x == 5 {
+		fmt.Println("X es 5")
+	} else {
+		fmt.Println("X es menor que 5")
+	}
 }
