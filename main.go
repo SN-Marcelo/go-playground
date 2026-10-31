@@ -23,4 +23,13 @@ func main() {
 	} else {
 		fmt.Println("X es menor que 5")
 	}
+
+	for i := 0; i < 5; i++ {
+		fmt.Println(i)
+	}
+
+	nums := []int{1, 2, 3}
+	for _, num := range nums {
+		fmt.Println(num)
+	}
 }
