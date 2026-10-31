@@ -52,4 +52,11 @@ func main() {
 	for key, value := range m {
 		fmt.Printf("Key: %s, Value: %d\n", key, value)
 	}
+
+	//defer waits till the function finishes
+	//It uses a Lifo sequence
+	for i := 0; i < 5; i++ {
+		defer fmt.Println(i)
+	}
+	fmt.Println("Loop finished")
 }
