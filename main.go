@@ -14,6 +14,20 @@ func (c Celsius) ToFarenheit() float64 {
 	return float64(c * 9 / 5 * 32)
 }
 
+type Person struct {
+	Name string
+	Age  int
+}
+
+type Rectangle struct {
+	Width  float64
+	Height float64
+}
+
+func (r Rectangle) Area() float64 {
+	return r.Width * r.Height
+}
+
 func main() {
 	var x int = 5
 	var y int = 3
@@ -69,4 +83,18 @@ func main() {
 
 	temp := Celsius(25)
 	fmt.Println(temp.ToFarenheit())
+
+	person := Person{
+		Name: "Marcelo",
+		Age:  22,
+	}
+
+	fmt.Println(person)
+	fmt.Printf("Person name: %s\n", person.Name)
+
+	rectangle := Rectangle{
+		Width:  5,
+		Height: 3,
+	}
+	fmt.Println(rectangle.Area())
 }
