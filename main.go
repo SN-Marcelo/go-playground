@@ -33,6 +33,20 @@ func Salute() {
 	fmt.Println("Hello from goroutine")
 }
 
+type Hello interface {
+	Bark() string
+}
+
+type Dog struct{}
+
+func (d Dog) Bark() string {
+	return "Wow!"
+}
+
+func printAnything(anything interface{}) {
+	fmt.Println(anything)
+}
+
 func main() {
 	var x int = 5
 	var y int = 3
@@ -152,4 +166,11 @@ func main() {
 	for key, value := range mappi {
 		fmt.Printf("key: %s\nvalue: %d\n", key, value)
 	}
+
+	var dog Hello = Dog{}
+	fmt.Println(dog.Bark())
+
+	printAnything(40)
+	printAnything("Hello World")
+	printAnything(3.14)
 }
