@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"test/math"
+	"time"
 )
 
 const Pi = 3.14
@@ -26,6 +27,10 @@ type Rectangle struct {
 
 func (r Rectangle) Area() float64 {
 	return r.Width * r.Height
+}
+
+func Salute() {
+	fmt.Println("Hello from goroutine")
 }
 
 func main() {
@@ -97,4 +102,8 @@ func main() {
 		Height: 3,
 	}
 	fmt.Println(rectangle.Area())
+
+	go Salute() //Go Routine / Background thread
+	time.Sleep(time.Second)
+	fmt.Println("main function completed")
 }
