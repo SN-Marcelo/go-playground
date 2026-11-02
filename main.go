@@ -120,4 +120,29 @@ func main() {
 	ch2 <- "World"
 	fmt.Println(<-ch2) //Hello
 	fmt.Println(<-ch2) //World
+
+	ch10 := make(chan string)
+	ch20 := make(chan string)
+
+	go func() { ch10 <- "Channel 10" }()
+	go func() { ch20 <- "Channel 20" }()
+
+	select {
+	case msg1 := <-ch10:
+		fmt.Println(msg1)
+	case msg2 := <-ch20:
+		fmt.Println(msg2)
+	}
+
+	go func() {
+		time.Sleep(2 * time.Second)
+		ch2 <- "Done"
+	}()
+
+	select {
+	case msg := <-ch2:
+		fmt.Println(msg)
+	case <-time.After(1 * time.Second):
+		fmt.Println("Timeout!")
+	}
 }
