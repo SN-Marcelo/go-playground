@@ -192,4 +192,8 @@ func main() {
 	for i, v := range stringArray {
 		fmt.Printf("Index %d, %s\n", i, v)
 	}
+
+	slice := []int{1, 2, 3}
+	slice = append(slice, 4, 5)
+	fmt.Println(slice)
 }
