@@ -173,10 +173,23 @@ func main() {
 	printAnything(40)
 	printAnything("Hello World")
 	printAnything(3.14)
+	/*
+	   	fmt.Println("Before goto")
+	   	goto End
+	   	fmt.Println("Won't be shown")
+	   End:
+	   	fmt.Println("After Goto")
+	*/
 
-	fmt.Println("Before goto")
-	goto End
-	fmt.Println("Won't be shown")
-End:
-	fmt.Println("After Goto")
+	var arr [5]int
+
+	arr[0] = 10
+	arr[1] = 20
+	fmt.Println(arr)
+	fmt.Println(arr[1])
+
+	stringArray := [3]string{"Go", "Rust", "Python"}
+	for i, v := range stringArray {
+		fmt.Printf("Index %d, %s\n", i, v)
+	}
 }
