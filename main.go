@@ -201,4 +201,15 @@ func main() {
 	myMap["apple"] = 2
 	myMap["banana"] = 3
 	fmt.Println(myMap["apple"])
+
+	a := 10
+	b := &a
+
+	fmt.Println(b)  //Memory Address
+	fmt.Println(*b) //Value 10
+
+	abc := 20
+	def := &abc
+	*def = 50
+	fmt.Println(abc)
 }
