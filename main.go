@@ -196,4 +196,9 @@ func main() {
 	slice := []int{1, 2, 3}
 	slice = append(slice, 4, 5)
 	fmt.Println(slice)
+
+	myMap := make(map[string]int)
+	myMap["apple"] = 2
+	myMap["banana"] = 3
+	fmt.Println(myMap["apple"])
 }
