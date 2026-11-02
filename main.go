@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"net/http"
+	"sync"
 	"test/math"
 	"time"
 )
@@ -45,6 +47,21 @@ func (d Dog) Bark() string {
 
 func printAnything(anything interface{}) {
 	fmt.Println(anything)
+}
+
+func fetchUrl(url string, wg *sync.WaitGroup) {
+	defer wg.Done()
+
+	start := time.Now()
+	res, err := http.Get(url)
+	if err != nil {
+		fmt.Printf("Error fetching %s: %v\n", url, err)
+		return
+	}
+
+	defer res.Body.Close()
+	duration := time.Since(start)
+	fmt.Printf("Fetched %s in %v - Status%s\n", url, duration, res.Status)
 }
 
 func main() {
@@ -212,4 +229,24 @@ func main() {
 	def := &abc
 	*def = 50
 	fmt.Println(abc)
+
+	urls := []string{
+		"https://rickandmortyapi.com/api/character/1",
+		"https://rickandmortyapi.com/api/character/2",
+		"https://rickandmortyapi.com/api/character/3",
+		"https://rickandmortyapi.com/api/character/4",
+	}
+
+	start := time.Now()
+	var wg sync.WaitGroup
+
+	for _, url := range urls {
+		wg.Add(1)
+		go fetchUrl(url, &wg)
+	}
+
+	wg.Wait()
+
+	totalDuration := time.Since(start)
+	fmt.Printf("Total concurrent time: %v\n", totalDuration)
 }
