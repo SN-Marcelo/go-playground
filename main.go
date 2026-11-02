@@ -106,4 +106,18 @@ func main() {
 	go Salute() //Go Routine / Background thread
 	time.Sleep(time.Second)
 	fmt.Println("main function completed")
+
+	ch := make(chan int)
+
+	go func() {
+		ch <- 42
+	}()
+	val := <-ch //waits
+	fmt.Println(val)
+
+	ch2 := make(chan string, 2)
+	ch2 <- "Hello"
+	ch2 <- "World"
+	fmt.Println(<-ch2) //Hello
+	fmt.Println(<-ch2) //World
 }
