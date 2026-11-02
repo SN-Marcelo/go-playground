@@ -145,4 +145,11 @@ func main() {
 	case <-time.After(1 * time.Second):
 		fmt.Println("Timeout!")
 	}
+
+	mappi := map[string]int{"manzana": 2, "banana": 3}
+	fmt.Println(mappi["manzana"])
+
+	for key, value := range mappi {
+		fmt.Printf("key: %s\nvalue: %d\n", key, value)
+	}
 }
